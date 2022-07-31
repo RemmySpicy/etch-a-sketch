@@ -1,7 +1,6 @@
 body {
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
 
 * {
@@ -30,7 +29,7 @@ button {
 }
 
 .container > div {
-    border: 1px solid black;
+    border: .5px solid darkgray;
     background-color: #eee;
     transition: background-color 150ms ease-out;
 }

@@ -21,11 +21,23 @@ function renderGrid(squares) {
 };
 
 // Color grids when mouse enters it
-function colorGrid() {
+function colorGrid(e) {
     const grids = document.querySelectorAll('.box');
     grids.forEach(grid => {
-        grid.addEventListener('mouseenter', () => {
-            grid.style.background = 'purple';
+        grid.addEventListener('mouseenter', (e) => {
+            // grid.style.background = 'purple';
+            // grid.style.background = `rgb(
+            //     ${e.clientX},
+            //     ${e.clientY},
+            //     ${Math.floor(Math.random() * 1000)}
+            //     )`;
+            //     console.log(e.clientX, e.clientY)
+            grid.style.background = `rgb(
+                ${Math.floor(Math.random() * 300)},
+                ${Math.floor(Math.random() * 400)},
+                ${Math.floor(Math.random() * 350)}
+                )`;
+                console.log(e.clientX, e.clientY)
         }); 
     });
 }
