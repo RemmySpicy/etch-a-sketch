@@ -15,20 +15,25 @@ function renderGrid(squares) {
     // Reset the grid template columns and rows each time
     container.style.gridTemplateColumns = `repeat(${squares}, 1fr)`;
     container.style.gridTemplateRows = `repeat(${squares}, 1fr)`;
+
+    // Color grids after creating them
+    colorGrid();
 };
 
 // Color grids when mouse enters it
-const grids = document.querySelectorAll('.box');
-grids.forEach(grid => {
-    grid.addEventListener('mouseenter', () => {
-        grid.style.background = 'green';
-    }) 
-})
+function colorGrid() {
+    const grids = document.querySelectorAll('.box');
+    grids.forEach(grid => {
+        grid.addEventListener('mouseenter', () => {
+            grid.style.background = 'green';
+        }); 
+    });
+}
 
 // Clear current grid when new grid is set
 function clearGrid() {
-    const boxes = document.querySelectorAll('.box');
-    boxes.forEach(box => {
+    const grids = document.querySelectorAll('.box');
+    grids.forEach(box => {
         box.parentElement.removeChild(box);
     })
 }
@@ -41,6 +46,13 @@ renderGrid(newSquares);
 // Reset the grids to the desired dimensions
 button.addEventListener('click', () => {
     newSquares = prompt('Enter number of squares per side for the new grid. (max: 100)', '3');
+
+    // Check if user had input valid number
+    if (newSquares > 100 || isNaN(newSquares)) {
+        alert('Please enter a valid number below 100');
+        return;
+    }
+
     clearGrid()
     renderGrid(newSquares)
 })
