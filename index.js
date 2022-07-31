@@ -25,7 +25,7 @@ function colorGrid() {
     const grids = document.querySelectorAll('.box');
     grids.forEach(grid => {
         grid.addEventListener('mouseenter', () => {
-            grid.style.background = 'green';
+            grid.style.background = 'purple';
         }); 
     });
 }
